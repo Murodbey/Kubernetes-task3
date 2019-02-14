@@ -2,14 +2,20 @@ kind: Pod
 apiVersion: v1
 metadata:
   name: nginx-app
+  labels:
+    app: nginx-app
 spec:
+  volumes: 
+    - name: app-data
+      persistentVolumeClaim:
+       claimName: app-data-claim
   containers:
     - name: nginx-app
       image: nginx
+      ports:
+        - containerPort: 80
+          protocol: TCP
       volumeMounts:
-      - mountPath: "/usr/share/nginx/html"
-        name: nginx-app
-  volumes: 
-    - name: nginx-app
-      persistentVolumeClaim:
-        claimName: app-data-claim
+        - mountPath: "/usr/share/nginx/html"
+          name: app-data
+          readOnly: true
