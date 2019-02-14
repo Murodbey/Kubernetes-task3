@@ -3,7 +3,7 @@ Task 3
 A) Save the commands for below task in pv-commands.txt
 	* List all persistant volumes by the name
 	* List all persistent volumes sorted by size
-   https://kubernetes.io/docs/reference.kubectl/cheatsheet/
+   https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 
 B) Create a pod as follows:
 	- Name: nginx-pod
