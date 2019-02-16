@@ -5,7 +5,9 @@ metadata:
   labels:
     app: nginx-app
 spec:
-  volumes: 
+  nodeSelector:
+    disktype: ssd      
+  volumes:
     - name: app-data
       persistentVolumeClaim:
        claimName: app-data-claim
@@ -16,6 +18,5 @@ spec:
         - containerPort: 80
           protocol: TCP
       volumeMounts:
-        - mountPath: "/usr/share/nginx/html"
-          name: app-data
-          readOnly: true
+      - mountPath: "/usr/share/nginx/html"
+        name: app-data

@@ -9,4 +9,5 @@ spec:
  accessModes:
   - ReadWriteOnce
  hostPath:
-  path: "/data/app-data/"
+   path: /data/app-data
+   type: Directory
